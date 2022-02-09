@@ -1,0 +1,35 @@
+{
+  "name": "metho-array",
+  "version": "0.0.1",
+  "description": "JavaScript Array prototype extensions using Metho",
+  "main": "metho-array.js",
+  "type": "module",
+  "module": "metho-array.js",
+  "sideEffects": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonrandy/metho-array.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "methods",
+    "object",
+    "syntax",
+    "metho",
+    "array",
+    "prototype"
+  ],
+  "author": "Jon Randy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonrandy/metho-array/issues"
+  },
+  "homepage": "https://github.com/jonrandy/metho-array#readme",
+  "dependencies": {
+    "metho": "^0.0.6"
+  }
+}
