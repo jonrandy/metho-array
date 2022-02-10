@@ -2,9 +2,10 @@
 import * as Metho from "metho"
 
 const target = Array.prototype
-const ARRAY_TARGET = "array"
+const ARRAY_FLAG = "array"
+const STRING_FLAG = "string"
 
-target[Metho.data] = ARRAY_TARGET
+target[Metho.data] = ARRAY_FLAG
 
 function addWithMaybeRegisteredSymbolName(target, func, symbolName) {
 	const registered = Metho.registered(symbolName)
@@ -25,29 +26,27 @@ function addWithMaybeRegisteredSymbolName(target, func, symbolName) {
 	return ret
 }
 
-// function addParamlessWithMaybeRegisteredSymbolName(target, func, symbolName) {
-// 	const registered = Metho.registered(symbolName)
-// 	let ret
-// 	if (registered) {
-// 		// if already registerd, re-use symbol
-// 		ret = Metho.add(target, func, { useSymbol: registered })
-// 	} else {
-// 		// if not registered, create a new Symbol and register it
-// 		ret = Metho.add(target, func, { register: true, symbolName })
-// 	}
-// 	return ret
-// }
 
-// function addWithParamsWithMaybeRegisteredSymbolName(target, func, symbolName) {
-// 	const registered = Metho.registered(symbolName)
-// 	let ret
-// 	if (registered) {
-// 		// the function already exists, we should not overwrite - just add our target to the existing function's targets
-// 		ret = registered
-// 		ret.targets = [...new Set([...ret.targets, target])]
-// 	} else {
-// 		// if not registered, create a new Symbol and register it
-// 		ret = Metho.add(target, func, { register: true, symbolName })
-// 	}
-// 	return ret
-// }
+// chunk an array or string in to pieces of given size
+const chunkFunc = function chunk(size) {
+	let res = []
+
+	if (this[Metho.data] == ARRAY_FLAG) {
+
+		// chunk array
+		let chunk
+		for (let i = 0; i < this.length; i += size) {
+			chunk = this.slice(i, i + size)
+			res.push(chunk)
+		}
+
+	} else if (this[Metho.data] == STRING_FLAG) {
+
+		// chunk string
+		res = this.match(new RegExp('.{1,' + size + '}', 'g'))
+
+	}
+	return res
+}
+
+export const chunk = addWithMaybeRegisteredSymbolName(target, chunkFunc, 'arrayOrStringChunk')
