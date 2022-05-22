@@ -72,3 +72,19 @@ export const tail = Metho.addWithSharedSymbolName(
 	},
 	"arrayOrStringTail"
 )
+
+/// sum - give the sum of the items in the array (uses +, so will also actually join as a string if any element is a string)
+export const sum = Metho.add(target, function sum() {
+	return this.reduce((total, i) => total+i)
+})
+
+/// product - give the product of the items in the array
+export const product = Metho.add(target, function sum() {
+	return this.reduce((total, i) => total*i)
+})
+
+/// join - joins all items in array (as strings) - with no separator
+export const join = Metho.add(target, function sum() {
+	return this.join('')
+})
+

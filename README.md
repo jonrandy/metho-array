@@ -26,4 +26,14 @@ import { chunk, pieces, reverse, head, tail } from 'metho-array'
 // tail (if already imported from metho-string, it will also work with arrays)
 [1, 2, 3, 4][tail] // [2, 3, 4]
 
+// sum - sum the items in array (will behave like 'join' if any item is a string)
+[1, 3, 5][sum] // 9
+[1, '3', 5][sum] // '135'
+
+// product - product of all items in array
+[1, 3, 5][product] // 15
+
+// join - join all items (as strings) in array, with no separator
+['a', 1, 'b'][join] // 'a1b'
+
 ```
