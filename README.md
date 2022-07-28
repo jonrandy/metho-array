@@ -5,7 +5,7 @@ Array prototype extensions using the [Metho](https://github.com/jonrandy/metho) 
 ## Usage
 
 ```js
-import { chunk, pieces, reverse, head, tail } from 'metho-array'
+import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, min, max } from 'metho-array'
 
 // chunk (if already imported from metho-string, it will also work with arrays)
 [1, 2, 3, 4, 5, 6][chunk(2)] // [[1, 2], [3, 4], [5, 6]]
@@ -35,5 +35,29 @@ import { chunk, pieces, reverse, head, tail } from 'metho-array'
 
 // join - join all items (as strings) in array, with no separator
 ['a', 1, 'b'][join] // 'a1b'
+
+// first - return the first element in the array, or the first n elements as an array
+['a', 'b', 'c'][first] // 'a'
+['a', 'b', 'c'][first(1)] // ['a']
+['a', 'b', 'c'][first(2)] // ['a', 'b']
+
+// last - return the last element in the array, or the last n elements as an array
+['a', 'b', 'c'][last] // 'c'
+['a', 'b', 'c'][last(1)] // ['c']
+['a', 'b', 'c'][last(2)] // ['b', 'c']
+
+// min - return the minimum number (using Math.min), the minimum from sorting with .sort(), or
+// the minimum from sorting with the given comparison function
+[4, 11, 3][min] // 3
+[4, 11, 3][min(false)] // 11
+['dog', 'ant', 'cat'][min(false)] // 'ant'
+[{a:31}, {a:2}, {a:5}][min((i,j) => i.a-j.a)] // {a:2}
+
+// max - return the maximum number (using Math.max), the maximum from sorting with .sort(), or
+// the maximum from sorting with the given comparison function
+[4, 11, 3][max] // 11
+[4, 11, 3][max(false)] // 4
+['dog', 'ant', 'cat'][max(false)] // 'dog'
+[{a:31}, {a:2}, {a:5}][max((i,j) => i.a-j.a)] // {a:31}
 
 ```
