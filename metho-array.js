@@ -73,18 +73,55 @@ export const tail = Metho.addWithSharedSymbolName(
 	"arrayOrStringTail"
 )
 
-/// sum - give the sum of the items in the array (uses +, so will also actually join as a string if any element is a string)
+// sum - give the sum of the items in the array (uses +, so will also actually join as a string if any element is a string)
 export const sum = Metho.add(target, function sum() {
 	return this.reduce((total, i) => total+i)
 })
 
-/// product - give the product of the items in the array
+// product - give the product of the items in the array
 export const product = Metho.add(target, function sum() {
 	return this.reduce((total, i) => total*i)
 })
 
-/// join - joins all items in array (as strings) - with no separator
+// join - joins all items in array (as strings) - with no separator
 export const join = Metho.add(target, function sum() {
 	return this.join('')
 })
 
+// first - same as ruby
+export const first = Metho.addWithParams(
+	target,
+	function first(count=undefined) {
+		return count === undefined ? this[0] : this.slice(0, count)
+	}
+)
+
+// last - same as ruby
+export const last = Metho.addWithParams(
+	target,
+	function last(count=undefined) {
+		return count === undefined ? this.slice(-1)[0] : this.slice(-count)
+	}
+)
+
+// min - get minimum value from array (based on numeric, normal sort, or sort function)
+export const min = Metho.addWithParams(
+	target,
+	function min(isNumericOrCompareFunc=true) {
+		if (typeof isNumericOrCompareFunc === 'function') {
+			return this.sort(isNumericOrCompareFunc)[0]
+		}
+		return isNumericOrCompareFunc ? Math.min(...this) : this.sort()[0]
+	}
+)
+
+// max - get minimum value from array (based on numeric, normal sort, or sort function)
+export const max = Metho.addWithParams(
+	target,
+	function min(isNumericOrCompareFunc=true) {
+		if (typeof isNumericOrCompareFunc === 'function') {
+			return this.sort(isNumericOrCompareFunc).slice(-1)[0]
+		}
+		return isNumericOrCompareFunc ? Math.max(...this) : this.sort().slice(-1)[0]
+	}
+)
