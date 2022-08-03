@@ -83,9 +83,9 @@ export const product = Metho.add(target, function sum() {
 	return this.reduce((total, i) => total*i)
 })
 
-// join - joins all items in array (as strings) - with no separator
-export const join = Metho.add(target, function sum() {
-	return this.join('')
+// join - joins all items in array (as strings) - with optional separator
+export const join = Metho.addWithParams(target, function join(separator='') {
+	return this.join(separator)
 })
 
 // first - same as ruby

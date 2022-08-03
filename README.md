@@ -33,8 +33,9 @@ import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, mi
 // product - product of all items in array
 [1, 3, 5][product] // 15
 
-// join - join all items (as strings) in array, with no separator
+// join - join all items (as strings) in array, with optional separator
 ['a', 1, 'b'][join] // 'a1b'
+['a', 1, 'b'][join('--')] // 'a--1--b'
 
 // first - return the first element in the array, or the first n elements as an array
 ['a', 'b', 'c'][first] // 'a'
