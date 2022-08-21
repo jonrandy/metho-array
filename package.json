@@ -1,6 +1,6 @@
 {
   "name": "metho-array",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "JavaScript Array prototype extensions using Metho",
   "main": "metho-array.js",
   "type": "module",
@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/jonrandy/metho-array#readme",
   "dependencies": {
-    "metho": "^0.0.7"
+    "metho": "^1.0.0"
   }
 }
