@@ -17,8 +17,7 @@ import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, mi
 // > not balanced
 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1][pieces(4, false)] // [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1]]
 
-// reverse (if already imported from metho-string, it will also work with arrays)
-// Pass `true` to reverse if you want to mutate original array as native method does
+// reverse (if already imported from metho-string, it will also work with arrays) - does not mutate original array
 [1, 2, 3][reverse] // [3, 2, 1]
 
 // head (if already imported from metho-string, it will also work with arrays)
