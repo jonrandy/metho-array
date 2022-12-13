@@ -46,12 +46,21 @@ export const pieces = Metho.addWithSharedSymbolName(
 )
 
 
-// reverse - reverse the array (duplicate native method)
+// reverse - reverse the array (duplicate native method - but don't mutate unless asked) or string
+const reverseFunc = function reverse(mutate) {
+	let res
+	if (this[Metho.data] == ARRAY_FLAG) {
+		// reverse array
+		res = mutate ? this.reverse() : [...this].reverse()
+	} else if (this[Metho.data] == STRING_FLAG) {
+		// reverse string
+		res = [...this].reverse().join("")
+	}
+	return res
+}
 export const reverse = Metho.addWithSharedSymbolName(
 	target,
-	function reverse() {
-		return this.reverse()
-	},
+	reverseFunc,
 	"arrayOrStringReverse"
 )
 
