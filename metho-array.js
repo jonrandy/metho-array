@@ -138,3 +138,12 @@ export const shuffle = Metho.add(target, function shuffle() {
   return a
 })
 
+// sample - grab a sample array of given size from the array (if no size given, a random single element is returned)
+export const sample = Metho.addWithParams(
+	target,
+	function sample(size=null) {
+		if (size==null) return this[~~(Math.random() * this.length)] 
+		if (size==1) return [this[~~(Math.random() * this.length)]]
+		return this[shuffle].slice(0, size)
+	}
+)
