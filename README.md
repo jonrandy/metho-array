@@ -61,4 +61,13 @@ import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, mi
 ['dog', 'ant', 'cat'][max(false)] // 'dog'
 [{a:31}, {a:2}, {a:5}][max((i,j) => i.a-j.a)] // {a:31}
 
+// shuffle - return a shuffled version of the array
+[1, 2, 3][shuffle] // [2, 1, 3]
+[1, 2, 3][shuffle] // [3, 2, 1]
+
+// sample - return a random sample of the array (pass nothing for a random element, or sample size for a sample array)
+[1, 2, 3, 4][sample] // 4
+[1, 2, 3, 4][sample(1)] // [2]
+[1, 2, 3, 4][sample(3)] // [4, 1, 3]
+
 ```
