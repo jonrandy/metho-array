@@ -130,12 +130,12 @@ export const max = Metho.addWithParams(
 export const shuffle = Metho.add(target, function shuffle() {
 	let a = [...this], l = a.length, i
 	while (l) {
-    // Pick a remaining element…
-    i = ~~(Math.random() * l--);
-    // swap with current element.
+		// Pick a remaining element…
+		i = ~~(Math.random() * l--);
+		// swap with current element.
 		[a[l], a[i]] = [a[i], a[l]] 
-  }
-  return a
+	}
+	return a
 })
 
 // sample - grab a sample array of given size from the array (if no size given, a random single element is returned)
