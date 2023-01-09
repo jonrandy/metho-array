@@ -5,7 +5,7 @@ Array prototype extensions using the [Metho](https://github.com/jonrandy/metho) 
 ## Usage
 
 ```js
-import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, min, max } from 'metho-array'
+import { chunk, pieces, reverse, head, tail, sum, product, join, first, last, min, max, shuffle, sample } from 'metho-array'
 
 // chunk (if already imported from metho-string, it will also work with arrays)
 [1, 2, 3, 4, 5, 6][chunk(2)] // [[1, 2], [3, 4], [5, 6]]
